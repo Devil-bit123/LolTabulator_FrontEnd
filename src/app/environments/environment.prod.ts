@@ -1,5 +1,5 @@
 export const environment = {
   production: true,
-  apiUrl: 'http://loltabulator.com/api/',
+  apiUrl: 'https://loltabulator.onrender.com/api/',
 
 };
