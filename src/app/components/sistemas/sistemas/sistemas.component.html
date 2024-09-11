@@ -1,0 +1,38 @@
+<ng-container *ngIf="!firstQuestionResponsed">
+
+
+<div style="height: 100vh; display: flex; flex-direction: column; justify-content: center; align-items: center;">
+<mat-card class="example-card" style="background: #222034" appearance="outlined">
+  <mat-card-header>
+    <mat-card-title style="color: white;">Estudias o Trabajas en el area de sistemas ?</mat-card-title>
+  </mat-card-header>
+  <mat-card-content>
+  </mat-card-content>
+  <mat-card-footer class="example-card-footer">
+    <div style="display: flex;justify-content: center; align-items: center; margin: 20px auto;">
+    <mat-chip-set style="color: white;">
+      <!-- <mat-chip style="color: black;" (click)="responseQuestionSistemas('true')">Si</mat-chip> -->
+      <!-- <mat-chip >No</mat-chip> -->
+      <button style="color: white; margin: 10px;" (click)="responseQuestionSistemas('true')" mat-stroked-button>Si</button>
+      <button style="color: white; margin: 10px;" (click)="responseQuestionSistemas('false')" mat-stroked-button>No</button>
+    </mat-chip-set>
+  </div>
+  <img src="https://cdn.dribbble.com/users/781872/screenshots/7898994/media/2f0cd269d471661d890867b56eebc1e2.gif">
+  </mat-card-footer>
+
+</mat-card>
+</div>
+
+</ng-container>
+
+<ng-container *ngIf="firstQuestionResponsed && !secondQuestionResponsed">
+
+  <app-line (selectionChanged)="handleSelectionChange($event)"></app-line>
+
+</ng-container>
+
+<ng-container *ngIf="firstQuestionResponsed && secondQuestionResponsed && !thirdQuestionResponsed">
+
+  <app-otp (selectionChanged)="handleSelectionChange($event)" ></app-otp>
+
+</ng-container>
