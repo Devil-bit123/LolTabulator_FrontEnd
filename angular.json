@@ -34,11 +34,15 @@
           },
           "configurations": {
             "production": {
+              "fileReplacements": [{
+                "replace": "src/app/environments/environment.ts",
+                "with": "src/app/environments/environment.prod.ts"
+              }],
               "budgets": [
                 {
                   "type": "initial",
-                  "maximumWarning": "500kB",
-                  "maximumError": "1MB"
+                  "maximumWarning": "1.8MB",
+                  "maximumError": "2MB"
                 },
                 {
                   "type": "anyComponentStyle",
@@ -49,6 +53,10 @@
               "outputHashing": "all"
             },
             "development": {
+              "fileReplacements": [{
+                "replace": "src/app/environments/environment.ts",
+                "with": "src/app/environments/environment.ts"
+              }],
               "optimization": false,
               "extractLicenses": false,
               "sourceMap": true
@@ -90,6 +98,14 @@
               "src/styles.css"
             ],
             "scripts": []
+          }
+        },
+        "deploy": {
+          "builder": "angular-cli-ghpages:deploy",
+          "options": {
+            "dir": "dist/lol-tabulator-front-end",
+            "repo": "https://github.com/Devil-bit123/LolTabulator_FrontEnd.git",
+            "branch": "gh-pages"
           }
         }
       }
