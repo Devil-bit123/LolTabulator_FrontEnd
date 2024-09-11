@@ -5,3 +5,5 @@ export interface Player {
   ip?:string,
   token?:string,
 }
+
+export type partialPlayer = Partial<Player>;

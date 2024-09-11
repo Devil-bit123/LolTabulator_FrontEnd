@@ -1,0 +1,15 @@
+<ng-container *ngIf="itsReady">
+<mat-card appearance="outlined" style="background-color: #0e111a;">
+  <ng-container style="align-items: center; justify-content: center; margin: 20px auto;">
+    <h4 style="color: white; text-align: center; margin: 10px;">{{TxtContainer}}</h4>
+    <p style="color: white; text-align: center; ">{{TxtP}}</p>
+  </ng-container>
+  <mat-card-content style="display: flex; align-items: center; justify-content: center;">
+    <img [src]="imgUrl" width="300px" alt="">
+  </mat-card-content>
+  <div style="margin: 10px; text-align: center;">
+    <button (click)="goToDashboard()" mat-stroked-button>Ver estadisticas</button>
+  </div>
+</mat-card>
+
+</ng-container>

@@ -1,0 +1,15 @@
+
+.example-card {
+  max-width: 400px;
+  background-color: #07182E !important;
+  /* color: white; */
+}
+
+.example-card-footer {
+  padding: 16px;
+  /* color: white; */
+}
+
+.full-width-select {
+  width: 100%;
+}
