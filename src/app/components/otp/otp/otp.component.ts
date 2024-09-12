@@ -264,6 +264,7 @@ export class OtpComponent implements OnInit {
         sistemas: currentPlayer.sistemas ?? false, // Usa valores predeterminados si es necesario
         line: currentPlayer.line ?? '',
         otp: currentPlayer.otp ?? '',
+        token:''
       };
 
       if(this.cookieService.get('usCt')){
