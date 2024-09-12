@@ -4,7 +4,6 @@ import { SistemasComponent } from './components/sistemas/sistemas/sistemas.compo
 import { DashboardComponent } from './components/dashboard/dashboard/dashboard.component';
 
 export const routes: Routes = [
-  { path: '', component: HomeComponent },
-  { path: 'sistemas', component: SistemasComponent },
+  { path: '', component: SistemasComponent },
   { path: 'dashboard', component: DashboardComponent },
 ];
