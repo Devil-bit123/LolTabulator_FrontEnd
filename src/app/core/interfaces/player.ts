@@ -3,7 +3,7 @@ export interface Player {
   line:string,
   otp:string,
   ip?:string,
-  token?:string,
+  token:any,
 }
 
 export type partialPlayer = Partial<Player>;
