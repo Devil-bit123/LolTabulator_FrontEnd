@@ -103,7 +103,9 @@
         "deploy": {
           "builder": "angular-cli-ghpages:deploy",
           "options": {
-            "dir": "dist/lol-tabulator-front-end",
+            "outputPath": "dist/lol-tabulator-front-end",
+            "baseHref": "https://Devil-bit123.github.io/LolTabulator_FrontEnd/",
+            "deployUrl": "/LolTabulator_FrontEnd/",
             "repo": "https://github.com/Devil-bit123/LolTabulator_FrontEnd.git",
             "branch": "gh-pages"
           }
