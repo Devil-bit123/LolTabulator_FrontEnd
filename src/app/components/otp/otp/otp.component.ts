@@ -222,7 +222,7 @@ export class OtpComponent implements OnInit {
 
   constructor(private playerService: PlayerService, private fb: FormBuilder, private cookieService: CookieService) {
     this.otpForm = this.fb.group({
-      otp: ['', [Validators.required, Validators.pattern(/^[A-Za-z0-9]{1,}$/)]],
+      otp: ['', [Validators.required]],
     });
 
     const otpControl = this.otpForm.get('otp') as FormControl;
