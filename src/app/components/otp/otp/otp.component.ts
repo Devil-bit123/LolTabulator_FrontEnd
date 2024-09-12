@@ -1,3 +1,4 @@
+import { CookieService } from 'ngx-cookie-service';
 import { Component, EventEmitter, inject, OnInit, Output } from '@angular/core';
 import { MatCardModule } from '@angular/material/card';
 import { MatChipsModule } from '@angular/material/chips';
@@ -25,6 +26,8 @@ import { AsyncPipe } from '@angular/common';
 
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { ThanksComponent } from '../../thanks/thanks/thanks.component';
+
+
 
 export interface Champion {
   name: string;
@@ -216,7 +219,8 @@ export class OtpComponent implements OnInit {
   itsResponsed = false;
   typeOfResponse="";
 
-  constructor(private playerService: PlayerService, private fb: FormBuilder) {
+
+  constructor(private playerService: PlayerService, private fb: FormBuilder, private cookieService: CookieService) {
     this.otpForm = this.fb.group({
       otp: ['', [Validators.required, Validators.pattern(/^[A-Za-z0-9]{1,}$/)]],
     });
@@ -262,21 +266,31 @@ export class OtpComponent implements OnInit {
         otp: currentPlayer.otp ?? '',
       };
 
-      this._playerService.postPlayers(PlayerResponses).subscribe({
-        next: (response) => {
+      if(this.cookieService.get('usCt')){
 
-          this.playerService.setMensaje('ok');
-          //this.itsResponsed = true;
+        this.playerService.setMensaje('trol');
 
-        },
-        error: (error) => {
-          console.log(error);
+      }else{
 
-          this.playerService.setMensaje('trol');
+        this._playerService.postPlayers(PlayerResponses).subscribe({
+          next: (response) => {
+
+            this.playerService.setMensaje('ok');
+            this.cookieService.set('usCt', response.token?);
+            //this.itsResponsed = true;
+
+          },
+          error: (error) => {
+            console.log(error);
+
+            this.playerService.setMensaje('trol');
 
 
-        },
-      });
+          },
+        });
+
+      }
+
       this.itsResponsed = true;
       this.itsLoading=false;
       //console.log('PlayerResponses:', PlayerResponses);
