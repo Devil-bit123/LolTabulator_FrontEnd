@@ -218,7 +218,7 @@ export class OtpComponent implements OnInit {
   itsLoading = false;
   itsResponsed = false;
   typeOfResponse="";
-
+  token:string="";
 
   constructor(private playerService: PlayerService, private fb: FormBuilder, private cookieService: CookieService) {
     this.otpForm = this.fb.group({
@@ -276,7 +276,7 @@ export class OtpComponent implements OnInit {
           next: (response) => {
 
             this.playerService.setMensaje('ok');
-            this.cookieService.set('usCt', response.token?);
+            this.cookieService.set('usCt', response.token);
             //this.itsResponsed = true;
 
           },
